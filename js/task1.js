@@ -1,4 +1,5 @@
 let arr = [];
+
 arr = prompt('Enter the numbers');
 const action = prompt('Enter actions with numbers?');
 
@@ -8,15 +9,19 @@ function getValidNum() {
 function doSum(n) {
 	return n.reduce((item, index ) => +item + +index,0);
 }
+
 function doSubtraction(n) {
 	return n.reduce((item, index ) => item - index,);
 }
+
 function doMultiplication(n) {
 	return n.reduce((item, index ) => item * index,);
 }
+
 function doDivision(n) {
 	return n.reduce((item, index ) => item / index,);
 }
+
 function getActionResult (arg) {
 	let result
 	result = (arg === '+' || arg === 'sum') 
@@ -30,6 +35,7 @@ function getActionResult (arg) {
 	:alert('Entered incorrect actions!');
 	return result;
 }
+
 function showActionResult() {
 	alert(`Numbers: ${getValidNum(arr)} \nAction: ${action} \nResult: ${getActionResult(action)}`);
 }
