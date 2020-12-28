@@ -7,19 +7,19 @@ function getValidNum() {
 	return arr.split(' ').filter((item, index) => !isNaN(item));
 }
 function doSum(n) {
-	return n.reduce((item, index ) => +item + +index,0);
+	return n.reduce((preValue, item ) => +preValue + +item,);
 }
 
 function doSubtraction(n) {
-	return n.reduce((item, index ) => item - index,);
+	return n.reduce((preValue, item ) => preValue - item,);
 }
 
 function doMultiplication(n) {
-	return n.reduce((item, index ) => item * index,);
+	return n.reduce((preValue, item ) => preValue * item,);
 }
 
 function doDivision(n) {
-	return n.reduce((item, index ) => item / index,);
+	return n.reduce((preValue, item ) => preValue / item,);
 }
 
 function getActionResult (arg) {
