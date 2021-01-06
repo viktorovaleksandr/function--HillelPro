@@ -1,45 +1,46 @@
-let arr = [];
-
-arr = prompt('Enter the numbers');
+const numbers = prompt('Enter the numbers');
 const action = prompt('Enter actions with numbers?');
 
-function getValidNum() {
-	return arr.split(' ').filter((item, index) => !isNaN(item));
-}
-function doSum(n) {
-	return n.reduce((preValue, item ) => +preValue + +item,);
+function getValidNumber() {
+	const validNumber = numbers.split(' ').map(Number).filter(item => !isNaN(item));
+	return validNumber;
 }
 
-function doSubtraction(n) {
-	return n.reduce((preValue, item ) => preValue - item,);
+function doSum(number) {
+	return number.reduce((preValue, item ) => preValue + item,);
 }
 
-function doMultiplication(n) {
-	return n.reduce((preValue, item ) => preValue * item,);
+function doSubtraction(number) {
+	return number.reduce((preValue, item ) => preValue - item,);
 }
 
-function doDivision(n) {
-	return n.reduce((preValue, item ) => preValue / item,);
+function doMultiplication(number) {
+	return number.reduce((preValue, item ) => preValue * item,);
+}
+
+function doDivision(number) {
+	return number.reduce((preValue, item ) => preValue / item,);
 }
 
 function getActionResult (arg) {
-	let result
-	result = (arg === '+' || arg === 'sum') 
-	?doSum(getValidNum())
-	:result = (arg === '-' || arg === 'subtraction') 
-	?doSubtraction(getValidNum())
-	:result = (arg === '*' || arg === 'multiplication') 
-	?doMultiplication(getValidNum())
-	:result = (arg === '/' || arg === 'division') 
-	?doDivision(getValidNum())
-	:alert('Entered incorrect actions!');
+	let result;
+	if (arg === '+' || arg === 'sum') {
+		result = doSum(getValidNumber());
+	} else if (arg === '-' || arg === 'subtraction') {
+		result = doSubtraction(getValidNumber());
+	} else if (arg === '*' || arg === 'multiplication') {
+		result = doMultiplication(getValidNumber());
+	} else if (arg === '/' || arg === 'division') {
+		result = doDivision(getValidNumber());
+	} else {
+		alert('Entered incorrect actions!');
+	}
 	return result;
 }
 
 function showActionResult() {
-	alert(`Numbers: ${getValidNum(arr)} \nAction: ${action} \nResult: ${getActionResult(action)}`);
+	alert(`Numbers: ${getValidNumber(numbers)} \nAction: ${action} \nResult: ${getActionResult(action)}`);
 }
-
 showActionResult()
 
 
