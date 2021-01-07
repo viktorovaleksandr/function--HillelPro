@@ -1,8 +1,8 @@
-const numbers = prompt('Enter the numbers');
+const value = prompt('Enter the numbers');
 const action = prompt('Enter actions with numbers?');
 
-function getValidNumber() {
-	const validNumber = numbers.split(' ').map(Number).filter(item => !isNaN(item));
+function getValidNumber(number) {
+	const validNumber = number.split(' ').map(Number).filter(item => !isNaN(item));
 	return validNumber;
 }
 
@@ -22,24 +22,22 @@ function doDivision(number) {
 	return number.reduce((preValue, item ) => preValue / item,);
 }
 
-function getActionResult (arg) {
-	let result;
-	if (arg === '+' || arg === 'sum') {
-		result = doSum(getValidNumber());
-	} else if (arg === '-' || arg === 'subtraction') {
-		result = doSubtraction(getValidNumber());
-	} else if (arg === '*' || arg === 'multiplication') {
-		result = doMultiplication(getValidNumber());
-	} else if (arg === '/' || arg === 'division') {
-		result = doDivision(getValidNumber());
+function getActionResult(action,number) {
+	if (action === '+' || action === 'sum') {
+		return doSum(number);
+	} else if (action === '-' || action === 'subtraction') {
+		return doSubtraction(number);
+	} else if (action === '*' || action === 'multiplication') {
+		return doMultiplication(number);
+	} else if (action === '/' || action === 'division') {
+		return doDivision(number);
 	} else {
-		alert('Entered incorrect actions!');
+		return alert('Entered incorrect actions!');
 	}
-	return result;
 }
 
 function showActionResult() {
-	alert(`Numbers: ${getValidNumber(numbers)} \nAction: ${action} \nResult: ${getActionResult(action)}`);
+	alert(`\nResult: ${getActionResult(action,getValidNumber(value))}`);
 }
 showActionResult()
 
