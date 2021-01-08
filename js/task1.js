@@ -1,9 +1,8 @@
 const value = prompt('Enter the numbers');
 const action = prompt('Enter actions with numbers?');
 
-function getValidNumber(number) {
-	const validNumber = number.split(' ').map(Number).filter(item => !isNaN(item));
-	return validNumber;
+function getValidNumbers(number) {
+	return number.split(' ').map(Number).filter(item => !isNaN(item));	 
 }
 
 function doSum(number) {
@@ -37,7 +36,7 @@ function getActionResult(action,number) {
 }
 
 function showActionResult() {
-	alert(`\nResult: ${getActionResult(action,getValidNumber(value))}`);
+	alert(`Result: ${getActionResult(action,getValidNumbers(value))}`);
 }
 showActionResult()
 
